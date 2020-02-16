@@ -11,6 +11,7 @@
 HOST_LISTS="
 	http://www.malwaredomainlist.com/hostslist/hosts.txt
 	http://winhelp2002.mvps.org/hosts.txt
+	http://hosts-file.net/ad_servers.txt
 	http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&startdate%5Bday%5D=&startdate%5Bmonth%5D=&star
 "
 
@@ -58,6 +59,10 @@ for i in $HOST_LISTS; do
 done
 # sort by domain
 sort -uk2 "$temp_file1" >"$temp_file2"
+
+# if your process is killed because of not enough ram memory comment sort command before and uncomment mv below:
+#mv "$temp_file1" >"$temp_file2"
+
 rm -f "$temp_file1"
 
 
